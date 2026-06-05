@@ -40,7 +40,18 @@ class ToolBox {
               type: Scratch.ArgumentType.STRING
             }
           }
-        }
+        },
+        {
+          opcode: 'print',
+          blockType: Scratch.BlockType.COMMAND,
+          text: 'Распечатать в консоль [ONE]',
+
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING
+            }
+          }
+        },
       ]
     };
   }
@@ -69,6 +80,14 @@ class ToolBox {
       return theResult;
     } catch (e) {
       return 'Не удалось закодировать текст';
+    }
+  }
+
+  print(args) {
+    try {
+      console.log(args.ONE)
+    } catch (e) {
+      alert('Не удалось напечатать ' + args.ONE + ' в консоль')
     }
   }
 }
