@@ -40,18 +40,7 @@ class ToolBox {
               type: Scratch.ArgumentType.STRING
             }
           }
-        },
-        {
-          opcode: 'getPagetext',
-          blockType: Scratch.BlockType.REPORTER,
-          text: 'Возполучить весь текст с сайта [ONE]',
-
-          arguments: {
-            ONE: {
-              type: Scratch.ArgumentType.STRING
-            }
-          }
-        },
+        }
       ]
     };
   }
@@ -79,30 +68,8 @@ class ToolBox {
       const theResult = atob(decodeURIComponent(args.ONE));
       return theResult;
     } catch (e) {
-      return 'Не удалось раскодировать текст';
+      return 'Не удалось закодировать текст';
     }
-  }
-
-  getPagetext(args) {
-    const url = args.ONE;
-
-  // Возвращаем промис — Scratch умеет работать с промисами в расширениях
-  return fetch(url)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.text();
-    })
-    .then(text => {
-      // Успешный результат — текст страницы
-      return text;
-    })
-    .catch(error => {
-      // Обработка любых ошибок
-      console.error('Ошибка при получении данных:', error);
-      return 'Ошибка загрузки: ' + error.message;
-    });
   }
 }
 
