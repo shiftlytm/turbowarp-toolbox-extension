@@ -84,7 +84,7 @@ class ToolBox {
   }
 
   getPagetext(args) {
-    const url = args.URL;
+    const url = args.ONE;
 
     try {
       const response = await fetch(url);
