@@ -12,12 +12,10 @@ class ToolBox {
 
           arguments: {
             ONE: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'текст 1'
+              type: Scratch.ArgumentType.STRING
             },
             TWO: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'текст 2'
+              type: Scratch.ArgumentType.STRING
             }
           }
         },
@@ -28,11 +26,21 @@ class ToolBox {
 
           arguments: {
             ONE: {
-              type: Scratch.ArgumentType.STRING,
-              defaultValue: 'Hello World'
+              type: Scratch.ArgumentType.STRING
             }
           }
-        }
+        },
+        {
+          opcode: 'decode',
+          blockType: Scratch.BlockType.REPORTER,
+          text: "раскодировать текст [ONE] из Base64',
+
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING
+            }
+          }
+        },
       ]
     };
   }
@@ -44,6 +52,11 @@ class ToolBox {
 
   encode(args) {
     const theResult = btoa(encodeURIComponent(args.ONE));
+    return theResult;
+  }
+
+  decode(args) {
+    const theResult = atob(decodeURIComponent(args.ONE));
     return theResult;
   }
 }
