@@ -58,8 +58,7 @@ class ToolBox {
 
   join(args) {
     try {
-      const theResult = args.ONE + args.TWO;
-      return theResult;
+      return args.ONE + args.TWO;
     } catch (e) {
       return 'Не удалось объединить текст';
     }
@@ -67,8 +66,7 @@ class ToolBox {
 
   encode(args) {
     try {
-      const theResult = btoa(encodeURIComponent(args.ONE));
-      return theResult;
+      return btoa(encodeURIComponent(args.ONE));
     } catch (e) {
       return 'Не удалось закодировать текст';
     }
@@ -76,8 +74,7 @@ class ToolBox {
 
   decode(args) {
     try {
-      const theResult = atob(decodeURIComponent(args.ONE));
-      return theResult;
+      return atob(decodeURIComponent(args.ONE));
     } catch (e) {
       return 'Не удалось закодировать текст';
     }
