@@ -41,6 +41,17 @@ class ToolBox {
             }
           }
         },
+        {
+          opcode: 'getPagetext',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'Возполучить весь текст с сайта [ONE]',
+
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING
+            }
+          }
+        },
       ]
     };
   }
@@ -69,6 +80,24 @@ class ToolBox {
       return theResult;
     } catch (e) {
       return 'Не удалось раскодировать текст';
+    }
+  }
+
+  getPagetext(args) {
+    const url = args.URL;
+
+    try {
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const text = await response.text();
+      return text;
+    } catch (error) {
+      console.error('Ошибка при получении данных:', error);
+      return 'Ошибка загрузки: ' + error.message;
     }
   }
 }
