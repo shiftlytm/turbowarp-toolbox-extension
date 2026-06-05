@@ -82,9 +82,9 @@ class ToolBox {
 
   print(args) {
     try {
-      console.log(args.ONE)
+      console.log(args.ONE);
     } catch (e) {
-      alert('Не удалось напечатать ' + args.ONE + ' в консоль')
+      alert('Не удалось напечатать ' + args.ONE + ' в консоль');
     }
   }
 }
