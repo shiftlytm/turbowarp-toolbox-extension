@@ -69,8 +69,9 @@ class ToolBox {
         }
       }
     } catch {
-      return 'Не удалось возполучить данные';
+        // ignore
     }
+    return "";
   }
 
   encode(args) {
