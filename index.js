@@ -26,4 +26,4 @@ class ToolBox {
   }
 }
 
-Scratch.extensions.register(new HelloWorld());
+Scratch.extensions.register(new ToolBox());
