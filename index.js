@@ -3,7 +3,7 @@ class ToolBox {
     return {
       id: 'toolboxtm',
       name: 'Расширенные возможности',
-      color1: 
+      color1: '#E8E8E8',
 
       blocks: [
         {
@@ -57,7 +57,7 @@ class ToolBox {
     };
   }
 
-  jsonKeysvalue({ item, json }) {
+  json_get({ item, json }) {
     try {
       json = JSON.parse(json);
       if (hasOwn(json, item)) {
