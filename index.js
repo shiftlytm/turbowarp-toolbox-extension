@@ -3,30 +3,33 @@ class ToolBox {
     return {
       id: 'toolboxtm',
       name: 'Расширенные возможности',
-      
+
       blocks: [
         {
           opcode: 'join',
           blockType: Scratch.BlockType.REPORTER,
           text: 'объединить текст [ONE] и [TWO]',
-          
+
           arguments: {
             ONE: {
-              type: Scratch.ArgumentType.STRING
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'текст 1'
             },
             TWO: {
-              type: Scratch.ArgumentType.STRING
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'текст 2'
             }
           }
         },
         {
           opcode: 'encode',
           blockType: Scratch.BlockType.REPORTER,
-          text: 'закодировать текст [ONE] по Base64',
-          
+          text: 'закодировать текст [ONE] в Base64',
+
           arguments: {
             ONE: {
-              type: Scratch.ArgumentType.STRING
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'Hello World'
             }
           }
         }
@@ -35,11 +38,13 @@ class ToolBox {
   }
 
   join(args) {
-    return args.ONE + args.TWO;
+    const theResult = args.ONE + args.TWO;
+    return theResult;
   }
 
   encode(args) {
-    return btoa(args.ONE);
+    const theResult = btoa(encodeURIComponent(args.ONE));
+    return theResult;
   }
 }
 
