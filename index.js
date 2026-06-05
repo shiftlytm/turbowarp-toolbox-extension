@@ -7,7 +7,7 @@ class ToolBox {
         {
           opcode: 'join',
           blockType: Scratch.BlockType.REPORTER,
-          text: 'объединить текст [ONE] и [TWO]'
+          text: 'объединить текст [ONE] и [TWO]',
           arguments: {
             ONE: {
               type: Scratch.ArgumentType.STRING
@@ -21,7 +21,7 @@ class ToolBox {
     };
   }
 
-  join (args) {
+  join(args) {
     return args.ONE + args.TWO;
   }
 }
