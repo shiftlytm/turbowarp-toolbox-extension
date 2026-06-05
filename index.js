@@ -3,22 +3,23 @@ class ToolBox {
     return {
       id: 'toolboxtm',
       name: 'Расширенные возможности',
+      color1: 
 
       blocks: [
         {
-          opcode: 'join',
+          opcode: "json_get",
           blockType: Scratch.BlockType.REPORTER,
-          text: 'объединить текст [ONE] и [TWO]',
-
+          text: 'Возполучить значение [item] в JSON: [json]',
           arguments: {
-            ONE: {
-              type: Scratch.ArgumentType.STRING
+            item: {
+              type: Scratch.ArgumentType.STRING,
             },
-            TWO: {
-              type: Scratch.ArgumentType.STRING
+            json: {
+              type: Scratch.ArgumentType.STRING,
             }
           }
         },
+          
         {
           opcode: 'encode',
           blockType: Scratch.BlockType.REPORTER,
@@ -56,11 +57,19 @@ class ToolBox {
     };
   }
 
-  join(args) {
+  jsonKeysvalue({ item, json }) {
     try {
-      return args.ONE + args.TWO;
-    } catch (e) {
-      return 'Не удалось объединить текст';
+      json = JSON.parse(json);
+      if (hasOwn(json, item)) {
+        const result = json[item] ?? "";
+        if (typeof result === "object") {
+          return JSON.stringify(result);
+        } else {
+          return result;
+        }
+      }
+    } catch {
+      return 'Не удалось возполучить данные';
     }
   }
 
@@ -86,11 +95,6 @@ class ToolBox {
     } catch (e) {
       alert('Не удалось напечатать ' + args.ONE + ' в консоль');
     }
-  }
-
-  jsonKeysvalue(args) {
-    try 
-      const theResult = this._fixInvalidJSONValues(this.json_valid_return(key)) in JSON.parse(json)
   }
 }
 
