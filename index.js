@@ -33,7 +33,7 @@ class ToolBox {
         {
           opcode: 'decode',
           blockType: Scratch.BlockType.REPORTER,
-          text: "раскодировать текст [ONE] из Base64',
+          text: 'раскодировать текст [ONE] из Base64',
 
           arguments: {
             ONE: {
