@@ -42,6 +42,7 @@ class ToolBox {
             }
           }
         },
+        '---',
         {
           opcode: 'print',
           blockType: Scratch.BlockType.COMMAND,
