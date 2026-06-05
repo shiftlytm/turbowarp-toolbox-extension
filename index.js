@@ -7,14 +7,14 @@ class ToolBox {
 
       blocks: [
         {
-          opcode: "json_get",
+          opcode: "newline",
           blockType: Scratch.BlockType.REPORTER,
-          text: 'Возполучить значение [item] в JSON: [json]',
+          text: '[ONE] новая строчка [TWO]',
           arguments: {
-            item: {
+            ONE: {
               type: Scratch.ArgumentType.STRING,
             },
-            json: {
+            TWO: {
               type: Scratch.ArgumentType.STRING,
             }
           }
@@ -58,21 +58,8 @@ class ToolBox {
     };
   }
 
-  json_get({ item, json }) {
-    try {
-      json = JSON.parse(json);
-      if (hasOwn(json, item)) {
-        const result = json[item] ?? "";
-        if (typeof result === "object") {
-          return JSON.stringify(result);
-        } else {
-          return result;
-        }
-      }
-    } catch {
-        // ignore
-    }
-    return "";
+  newline(args) {
+    return args.ONE + '/n' + args.TWO;
   }
 
   encode(args) {
