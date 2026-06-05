@@ -87,6 +87,11 @@ class ToolBox {
       alert('Не удалось напечатать ' + args.ONE + ' в консоль');
     }
   }
+
+  jsonKeysvalue(args) {
+    try 
+      const theResult = this._fixInvalidJSONValues(this.json_valid_return(key)) in JSON.parse(json)
+  }
 }
 
 Scratch.extensions.register(new ToolBox());
