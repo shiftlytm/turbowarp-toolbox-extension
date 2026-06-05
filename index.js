@@ -18,7 +18,8 @@ class ToolBox {
               type: Scratch.ArgumentType.STRING
             }
           }
-        }
+        },
+        
         {
           opcode: 'encode',
           blockType: Scratch.BlockType.REPORTER,
