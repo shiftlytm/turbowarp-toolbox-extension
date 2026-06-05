@@ -86,19 +86,23 @@ class ToolBox {
   getPagetext(args) {
     const url = args.ONE;
 
-    try {
-      const response = await fetch(url);
-
+  // Возвращаем промис — Scratch умеет работать с промисами в расширениях
+  return fetch(url)
+    .then(response => {
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
-
-      const text = await response.text();
+      return response.text();
+    })
+    .then(text => {
+      // Успешный результат — текст страницы
       return text;
-    } catch (error) {
+    })
+    .catch(error => {
+      // Обработка любых ошибок
       console.error('Ошибка при получении данных:', error);
       return 'Ошибка загрузки: ' + error.message;
-    }
+    });
   }
 }
 
