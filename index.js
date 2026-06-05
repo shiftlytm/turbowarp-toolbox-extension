@@ -59,7 +59,7 @@ class ToolBox {
   }
 
   newline(args) {
-    return args.ONE + '/n' + args.TWO;
+    return args.ONE + '\n' + args.TWO;
   }
 
   encode(args) {
