@@ -19,7 +19,6 @@ class ToolBox {
             }
           }
         },
-        
         {
           opcode: 'encode',
           blockType: Scratch.BlockType.REPORTER,
