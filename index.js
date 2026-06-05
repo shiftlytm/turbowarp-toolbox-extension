@@ -46,18 +46,30 @@ class ToolBox {
   }
 
   join(args) {
-    const theResult = args.ONE + args.TWO;
-    return theResult;
+    try {
+      const theResult = args.ONE + args.TWO;
+      return theResult;
+    } catch (e) {
+      return 'Не удалось объединить текст';
+    }
   }
 
   encode(args) {
-    const theResult = btoa(encodeURIComponent(args.ONE));
-    return theResult;
+    try {
+      const theResult = btoa(encodeURIComponent(args.ONE));
+      return theResult;
+    } catch (e) {
+      return 'Не удалось закодировать текст';
+    }
   }
 
   decode(args) {
-    const theResult = atob(decodeURIComponent(args.ONE));
-    return theResult;
+    try {
+      const theResult = atob(decodeURIComponent(args.ONE));
+      return theResult;
+    } catch (e) {
+      return 'Не удалось раскодировать текст';
+    }
   }
 }
 
