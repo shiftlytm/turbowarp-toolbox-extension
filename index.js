@@ -97,7 +97,7 @@ class ToolBox {
     try {
       console.log(args.ONE);
     } catch (e) {
-      return 'Не удалось напечатать ' + args.ONE + ' в консоль';
+      console.log('Не удалось напечатать ' + args.ONE + ' в консоль');
     }
   }
 
@@ -105,7 +105,7 @@ class ToolBox {
     try {
       alert(args.ONE);
     } catch (e) {
-      return 'Не удалось уведомить пользователя';
+      console.log('Не удалось уведомить пользователя');
     }
   }
 }
