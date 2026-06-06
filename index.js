@@ -159,7 +159,7 @@ class ToolBox {
 
   false(args) {
     try {
-      return arga.ONE === false;
+      return args.ONE === false;
     } catch (e) {
       console.log('Не удалось определить');
     }
