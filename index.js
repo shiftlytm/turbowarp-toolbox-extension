@@ -54,12 +54,27 @@ class ToolBox {
             }
           }
         },
+        {
+          opcode: 'notification',
+          blockType: Scratch.BlockType.COMMAND,
+          text: 'Уведомить [ONE]',
+
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING
+            }
+          }
+        },
       ]
     };
   }
 
   newline(args) {
-    return args.ONE + '\n' + args.TWO;
+    try {
+      return args.ONE + '\n' + args.TWO;
+    } catch (e) {
+      return 'Не удалось разбить тексты по строкам';
+    }
   }
 
   encode(args) {
@@ -82,9 +97,16 @@ class ToolBox {
     try {
       console.log(args.ONE);
     } catch (e) {
-      alert('Не удалось напечатать ' + args.ONE + ' в консоль');
+      return 'Не удалось напечатать ' + args.ONE + ' в консоль';
     }
   }
+
+  notification(args) {
+    try {
+      alert(args.ONE);
+    } catch (e) {
+      return 'Не удалось уведомить пользователя';
+    }
 }
 
 Scratch.extensions.register(new ToolBox());
