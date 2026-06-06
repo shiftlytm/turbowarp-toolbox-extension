@@ -44,6 +44,43 @@ class ToolBox {
         },
         '---',
         {
+          opcode: 'register',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: '[ONE] точно является [TWO] по регистру букв?',
+
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING
+            },
+            TWO: {
+              type: Scratch.ArgumentType.STRING
+            }
+          }
+        },
+        {
+          opcode: 'true',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: '[ONE] — правда?',
+
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.BOOLEAN
+            }
+          }
+        },
+        {
+          opcode: 'false',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: '[ONE] — ложь?',
+
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.BOOLEAN
+            }
+          }
+        },
+        '---',
+        {
           opcode: 'print',
           blockType: Scratch.BlockType.COMMAND,
           text: 'распечатать в консоль [ONE]',
@@ -101,6 +138,30 @@ class ToolBox {
       return atob(decodeURIComponent(args.ONE));
     } catch (e) {
       return 'Не удалось раскодировать текст';
+    }
+  }
+
+  register(args) {
+    try {
+      return args.ONE === args.TWO;
+    } catch (e) {
+      console.log('Не удалось определить');
+    }
+  }
+
+  true(args) {
+    try {
+      return args.ONE === true;
+    } catch (e) {
+      console.log('Не удалось определить');
+    }
+  }
+
+  false(args) {
+    try {
+      return arga.ONE === false;
+    } catch (e) {
+      console.log('Не удалось определить');
     }
   }
 
