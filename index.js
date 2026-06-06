@@ -89,7 +89,7 @@ class ToolBox {
     try {
       return atob(decodeURIComponent(args.ONE));
     } catch (e) {
-      return 'Не удалось закодировать текст';
+      return 'Не удалось раскодировать текст';
     }
   }
 
@@ -107,6 +107,7 @@ class ToolBox {
     } catch (e) {
       return 'Не удалось уведомить пользователя';
     }
+  }
 }
 
 Scratch.extensions.register(new ToolBox());
