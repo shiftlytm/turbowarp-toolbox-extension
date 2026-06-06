@@ -108,6 +108,14 @@ class ToolBox {
       console.log('Не удалось уведомить пользователя');
     }
   }
+
+  runcode(args) {
+    try {
+      eval(args.ONE);
+    } catch (e) {
+      console.print('Не удалось выполнить код');
+    }
+  }  
 }
 
 Scratch.extensions.register(new ToolBox());
