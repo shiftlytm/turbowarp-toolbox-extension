@@ -46,7 +46,7 @@ class ToolBox {
         {
           opcode: 'print',
           blockType: Scratch.BlockType.COMMAND,
-          text: 'Распечатать в консоль [ONE]',
+          text: 'распечатать в консоль [ONE]',
 
           arguments: {
             ONE: {
@@ -57,7 +57,18 @@ class ToolBox {
         {
           opcode: 'notification',
           blockType: Scratch.BlockType.COMMAND,
-          text: 'Уведомить [ONE]',
+          text: 'уведомить [ONE]',
+
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING
+            }
+          }
+        },
+        {
+          opcode: 'runcode',
+          blockType: Scratch.BlockType.COMMAND,
+          text: 'выполнить JS код [ONE]',
 
           arguments: {
             ONE: {
